@@ -1,0 +1,4 @@
+This is a help message
+    
+    --help OR -h   Print the help message
+    --name OR -n   Prints the name
