@@ -1,6 +1,6 @@
 
 
-class Argument:
+class Argparser:
      
     def __init__(self,args):
         """  
@@ -35,7 +35,6 @@ class Argument:
                 self.commands.append(arg)
 
 
-    
 
     #arg.hasOptions("-p","-l")
     def hasOptions(self,options: list):
@@ -69,8 +68,26 @@ class Argument:
 
 
     def printHelp(self,file):
+        """this function print help from the assets folder
 
-        with open("help/"+file+'.txt') as f:
+        Args:
+            file (txt): call printHelp(filename)
+            example :printHelp("help") 
+        """
+
+        with open("assets/"+file+'.txt') as f:
             lines =f.read()
             print("\n"+lines)
             exit(-1)
+
+    def printBanner(self):
+        """print Banner.txt file from the assets folder
+        """
+        try:
+            with open("assets/banner.txt") as f:
+                lines= f.read()
+                print('\n '+lines)
+                exit(-1)
+        except FileNotFoundError as e:
+            print(e)
+            

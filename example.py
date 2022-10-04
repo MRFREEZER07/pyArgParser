@@ -1,11 +1,9 @@
 #! /bin/python3
 import sys
-import os
-from lib.Argument import Argument 
-import json
+from Argparser import Argparser
 
-a= Argument(sys.argv)
 
+a= Argparser(sys.argv)
 
 
 if(a.hasOptions(['-h','--help'])):
@@ -17,7 +15,11 @@ WORKS LIKE --proxy=true
 """
 
 if(a.hasOptions(['--proxy','-p'])): 
-    if a.getOptionValue('--proxy') or a.getOptionValue('-p'):
-        print("implemented")
-    else:
-        print("not worked")
+    answerr =a.getOptionValue('-p') or a.getOptionValue("--proxy")
+    print(answerr)
+else:
+    print("not worked")
+
+if(a.hasOptions(['-f','--file'])):
+    fileName = a.getOptionValue('-f') or a.getOptionValue('--file')
+    print(fileName)
